@@ -1,0 +1,78 @@
+@use '@/styles/variables.scss' as *;
+
+.card {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  height: 360rpx;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.draftTag {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  padding: 4rpx 16rpx;
+  background: rgba(0, 0, 0, 0.6);
+  color: $color-text-white;
+  font-size: $font-size-xs;
+  border-radius: $radius-xs;
+}
+
+.info {
+  padding: $spacing-md $spacing-lg;
+}
+
+.title {
+  display: block;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  @include text-ellipsis;
+}
+
+.template {
+  display: block;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-top: 4rpx;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: $spacing-sm;
+}
+
+.time {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.stats {
+  display: flex;
+  gap: $spacing-md;
+}
+
+.stat {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}

@@ -1,0 +1,104 @@
+@use '@/styles/variables.scss' as *;
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-sm;
+  transition: all $transition-fast;
+  white-space: nowrap;
+
+  &:active {
+    opacity: 0.8;
+  }
+
+  &.small {
+    padding: 2rpx 12rpx;
+    .text {
+      font-size: $font-size-xs;
+    }
+  }
+
+  &.medium {
+    padding: 6rpx 20rpx;
+    .text {
+      font-size: $font-size-sm;
+    }
+  }
+
+  &.large {
+    padding: 10rpx 28rpx;
+    .text {
+      font-size: $font-size-md;
+    }
+  }
+
+  &.default {
+    background: $color-bg-hover;
+    .text {
+      color: $color-text-secondary;
+    }
+    &.selected {
+      background: $color-primary;
+      .text {
+        color: $color-text-white;
+      }
+    }
+  }
+
+  &.primary {
+    background: $color-tag-bg;
+    .text {
+      color: $color-tag-text;
+    }
+    &.selected {
+      background: $color-primary;
+      .text {
+        color: $color-text-white;
+      }
+    }
+  }
+
+  &.success {
+    background: rgba(0, 180, 42, 0.1);
+    .text {
+      color: $color-success;
+    }
+    &.selected {
+      background: $color-success;
+      .text {
+        color: $color-text-white;
+      }
+    }
+  }
+
+  &.warning {
+    background: rgba(255, 125, 0, 0.1);
+    .text {
+      color: $color-warning;
+    }
+    &.selected {
+      background: $color-warning;
+      .text {
+        color: $color-text-white;
+      }
+    }
+  }
+
+  &.info {
+    background: $color-blue-tag;
+    .text {
+      color: $color-blue-text;
+    }
+    &.selected {
+      background: $color-info;
+      .text {
+        color: $color-text-white;
+      }
+    }
+  }
+}
+
+.text {
+  font-weight: $font-weight-medium;
+}

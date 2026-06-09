@@ -1,0 +1,51 @@
+@use '@/styles/variables.scss' as *;
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 88rpx;
+  padding: 0 $spacing-md;
+  background: $color-bg-card;
+  position: relative;
+}
+
+.leftArea,
+.rightArea {
+  width: 120rpx;
+  display: flex;
+  align-items: center;
+}
+
+.rightArea {
+  justify-content: flex-end;
+}
+
+.backBtn {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.backIcon {
+  font-size: 40rpx;
+  color: $color-text-primary;
+  font-weight: $font-weight-semibold;
+}
+
+.titleArea {
+  flex: 1;
+  text-align: center;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}

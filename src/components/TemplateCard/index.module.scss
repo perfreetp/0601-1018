@@ -1,0 +1,80 @@
+@use '@/styles/variables.scss' as *;
+
+.card {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+
+  &.selected {
+    border: 4rpx solid $color-primary;
+  }
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  height: 400rpx;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.tagWrap {
+  position: absolute;
+  top: $spacing-sm;
+  left: $spacing-sm;
+  display: flex;
+  gap: $spacing-xs;
+}
+
+.tag {
+  padding: 4rpx 16rpx;
+  border-radius: $radius-xs;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-text-white;
+}
+
+.hotTag {
+  background: linear-gradient(135deg, $color-error 0%, $color-warning 100%);
+}
+
+.newTag {
+  background: linear-gradient(135deg, $color-info 0%, $color-primary-light 100%);
+}
+
+.info {
+  padding: $spacing-md $spacing-lg;
+}
+
+.name {
+  display: block;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  @include text-ellipsis;
+}
+
+.tags {
+  display: flex;
+  gap: $spacing-sm;
+  margin-top: $spacing-xs;
+}
+
+.miniTag {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  background: $color-bg-hover;
+  padding: 2rpx 12rpx;
+  border-radius: $radius-xs;
+}

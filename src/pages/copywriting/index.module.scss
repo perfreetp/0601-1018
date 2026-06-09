@@ -1,0 +1,132 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background: $color-bg-page;
+  padding-bottom: 120rpx;
+}
+
+.categoryScroll {
+  background: $color-bg-card;
+  padding: $spacing-md $spacing-lg;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  :global {
+    .scroll-view {
+      @include scroll-x-container;
+    }
+  }
+}
+
+.categoryItem {
+  @include scroll-x-item(auto);
+  margin-right: $spacing-sm;
+}
+
+.searchBar {
+  padding: $spacing-md $spacing-lg;
+  background: $color-bg-card;
+  border-bottom: 1rpx solid $color-divider;
+}
+
+.searchInput {
+  display: flex;
+  align-items: center;
+  background: $color-bg-page;
+  border-radius: $radius-button;
+  padding: 0 $spacing-lg;
+  height: $button-height-md;
+}
+
+.searchIcon {
+  font-size: $font-size-lg;
+  margin-right: $spacing-sm;
+  color: $color-text-tertiary;
+}
+
+.searchText {
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+}
+
+.copyList {
+  padding: $spacing-md $spacing-lg;
+}
+
+.copyCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-md;
+  box-shadow: $shadow-card;
+}
+
+.copyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: $spacing-sm;
+}
+
+.copyTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.copyCategory {
+  font-size: $font-size-xs;
+  padding: 4rpx 12rpx;
+  background: $color-tag-bg;
+  color: $color-tag-text;
+  border-radius: $radius-xs;
+}
+
+.copyContent {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-loose;
+  margin-bottom: $spacing-md;
+}
+
+.copyFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyUsage {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.copyActions {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.actionBtn {
+  @include button-reset;
+  height: $button-height-sm;
+  min-width: 120rpx;
+  padding: 0 $spacing-md;
+  font-size: $font-size-sm;
+  border-radius: $radius-button;
+
+  &.primary {
+    background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+    color: $color-text-white;
+  }
+
+  &.secondary {
+    background: $color-bg-hover;
+    color: $color-text-secondary;
+  }
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}

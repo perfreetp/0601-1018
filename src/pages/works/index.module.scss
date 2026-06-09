@@ -1,0 +1,130 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background: $color-bg-page;
+  padding-bottom: 120rpx;
+}
+
+.tabs {
+  display: flex;
+  background: $color-bg-card;
+  padding: $spacing-sm $spacing-lg;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  gap: $spacing-lg;
+}
+
+.tabItem {
+  padding: $spacing-sm 0;
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  font-weight: $font-weight-medium;
+  position: relative;
+
+  &.active {
+    color: $color-primary;
+    font-weight: $font-weight-semibold;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48rpx;
+      height: 6rpx;
+      background: $color-primary;
+      border-radius: 3rpx;
+    }
+  }
+}
+
+.buildingSection {
+  padding: $spacing-lg;
+}
+
+.sectionTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.buildingScroll {
+  :global {
+    .scroll-view {
+      @include scroll-x-container;
+    }
+  }
+}
+
+.buildingCard {
+  @include scroll-x-item(200rpx);
+  margin-right: $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+
+  &:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+}
+
+.buildingImg {
+  width: 100%;
+  height: 160rpx;
+}
+
+.buildingInfo {
+  padding: $spacing-sm $spacing-md;
+}
+
+.buildingName {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  @include text-ellipsis;
+}
+
+.buildingCount {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+}
+
+.worksGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-md;
+  padding: 0 $spacing-lg;
+}
+
+.filterBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+}
+
+.filterLeft {
+  display: flex;
+  gap: $spacing-sm;
+  align-items: center;
+}
+
+.resultCount {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.sortBtn {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  display: flex;
+  align-items: center;
+  gap: 4rpx;
+}
