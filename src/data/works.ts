@@ -200,42 +200,48 @@ export const platformSizes: PlatformSize[] = [
     name: '朋友圈方图',
     width: 1080,
     height: 1080,
-    platform: '微信'
+    platform: '微信',
+    ratioClass: 'square'
   },
   {
     id: 'p2',
     name: '朋友圈竖图',
     width: 1080,
     height: 1440,
-    platform: '微信'
+    platform: '微信',
+    ratioClass: 'portrait'
   },
   {
     id: 'p3',
     name: '小红书',
     width: 1080,
     height: 1440,
-    platform: '小红书'
+    platform: '小红书',
+    ratioClass: 'portrait'
   },
   {
     id: 'p4',
     name: '抖音',
     width: 1080,
     height: 1920,
-    platform: '抖音'
+    platform: '抖音',
+    ratioClass: 'vertical'
   },
   {
     id: 'p5',
     name: '公众号封面',
     width: 900,
     height: 500,
-    platform: '公众号'
+    platform: '公众号',
+    ratioClass: 'landscape'
   },
   {
     id: 'p6',
     name: '视频号',
     width: 1080,
     height: 1260,
-    platform: '视频号'
+    platform: '视频号',
+    ratioClass: 'story'
   }
 ];
 

@@ -1,0 +1,377 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background: $bg-page;
+  padding-bottom: 180rpx;
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx 32rpx;
+  background: white;
+  border-bottom: 1rpx solid $border-light;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.stepInfo {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.stepDot {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: $brand-primary;
+  color: white;
+  font-size: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.stepText {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+.stepProgress {
+  font-size: 24rpx;
+  color: $text-secondary;
+}
+
+.sectionCard {
+  margin: 24rpx 24rpx 0;
+  background: white;
+  border-radius: $radius-lg;
+  padding: 28rpx 24rpx;
+  box-shadow: $shadow-sm;
+}
+
+.sectionTitle {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: $text-primary;
+  margin-bottom: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.selectedCount {
+  font-size: 24rpx;
+  color: $brand-primary;
+  font-weight: 500;
+}
+
+.propertyList {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.propertyItem {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  padding: 20rpx;
+  border: 2rpx solid $border-light;
+  border-radius: $radius-md;
+  background: $bg-page;
+  transition: all 0.2s;
+
+  &.selected {
+    border-color: $brand-primary;
+    background: rgba($brand-primary, 0.05);
+  }
+}
+
+.checkBox {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 2rpx solid $border-medium;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+
+  &.checked {
+    background: $brand-primary;
+    border-color: $brand-primary;
+  }
+}
+
+.checkIcon {
+  color: white;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.propertyCover {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: $radius-sm;
+  flex-shrink: 0;
+  background: $bg-gray;
+}
+
+.propertyContent {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.propertyName {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: $text-primary;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.propertyMeta {
+  font-size: 24rpx;
+  color: $text-secondary;
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.propertyPrice {
+  color: $price-color;
+  font-weight: 600;
+}
+
+.optionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.optionItem {
+  border: 2rpx solid $border-light;
+  border-radius: $radius-md;
+  padding: 16rpx;
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  background: $bg-page;
+  transition: all 0.2s;
+
+  &.selected {
+    border-color: $brand-primary;
+    background: rgba($brand-primary, 0.06);
+  }
+}
+
+.optionCover {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: $radius-sm;
+  flex-shrink: 0;
+  background: $bg-gray;
+}
+
+.optionInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.optionName {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: $text-primary;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.optionDesc {
+  font-size: 20rpx;
+  color: $text-secondary;
+}
+
+.sizeList {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.sizeItem {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  padding: 20rpx;
+  border: 2rpx solid $border-light;
+  border-radius: $radius-md;
+  background: $bg-page;
+
+  &.selected {
+    border-color: $brand-primary;
+    background: rgba($brand-primary, 0.06);
+  }
+}
+
+.sizePreview {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 8rpx;
+  background: linear-gradient(135deg, $brand-primary, $brand-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18rpx;
+  font-weight: 600;
+  flex-shrink: 0;
+
+  &.square { width: 60rpx; height: 60rpx; }
+  &.portrait { width: 48rpx; height: 60rpx; }
+  &.landscape { width: 60rpx; height: 42rpx; }
+  &.story { width: 42rpx; height: 70rpx; }
+  &.vertical { width: 40rpx; height: 70rpx; }
+}
+
+.sizeContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.sizeName {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+.sizeDesc {
+  font-size: 22rpx;
+  color: $text-secondary;
+}
+
+.checkBoxSmall {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  border: 2rpx solid $border-medium;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+
+  &.checked {
+    background: $brand-primary;
+    border-color: $brand-primary;
+  }
+}
+
+.bottomBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24rpx 32rpx;
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
+  background: white;
+  box-shadow: 0 -4rpx 24rpx rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  z-index: 20;
+}
+
+.btnGenerate {
+  flex: 1;
+  height: 88rpx;
+  background: linear-gradient(135deg, $brand-primary, $brand-secondary);
+  color: white;
+  font-size: 30rpx;
+  font-weight: 600;
+  border-radius: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba($brand-primary, 0.32);
+
+  &.disabled {
+    background: #ccc;
+    box-shadow: none;
+  }
+}
+
+.btnPreview {
+  height: 88rpx;
+  padding: 0 36rpx;
+  background: $bg-page;
+  color: $text-primary;
+  font-size: 28rpx;
+  font-weight: 500;
+  border-radius: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2rpx solid $border-light;
+}
+
+.summaryTip {
+  font-size: 22rpx;
+  color: $text-secondary;
+  margin-right: auto;
+}
+
+.tipBox {
+  margin: 24rpx;
+  padding: 20rpx 24rpx;
+  background: #FFF8E6;
+  border-radius: $radius-md;
+  border: 1rpx solid #FFE4A3;
+  display: flex;
+  gap: 12rpx;
+  align-items: flex-start;
+}
+
+.tipIcon {
+  font-size: 28rpx;
+  flex-shrink: 0;
+}
+
+.tipText {
+  font-size: 24rpx;
+  color: #8A6800;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.addNewBtn {
+  width: 100%;
+  padding: 28rpx;
+  border: 2rpx dashed $border-medium;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rpx;
+  color: $brand-primary;
+  font-size: 26rpx;
+  font-weight: 500;
+  background: $bg-page;
+  margin-top: 8rpx;
+}

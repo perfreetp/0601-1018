@@ -3,245 +3,284 @@
 .page {
   min-height: 100vh;
   background: #000;
-  padding-bottom: 160rpx;
+  color: white;
+  padding-bottom: 200rpx;
 }
 
-.previewContainer {
-  padding: $spacing-xl $spacing-lg;
-  display: flex;
-  justify-content: center;
-}
-
-.posterWrap {
-  width: 100%;
-  max-width: 650rpx;
-  background: $color-bg-card;
-  border-radius: $radius-xl;
-  overflow: hidden;
-  box-shadow: 0 8rpx 40rpx rgba(0, 0, 0, 0.3);
-}
-
-.posterImage {
-  width: 100%;
-  height: 550rpx;
-}
-
-.posterBody {
-  padding: $spacing-xl;
-}
-
-.communityName {
-  font-size: $font-size-xxl;
-  font-weight: $font-weight-bold;
-  color: $color-text-primary;
-  margin-bottom: $spacing-sm;
-}
-
-.priceRow {
-  display: flex;
-  align-items: baseline;
-  margin-bottom: $spacing-md;
-}
-
-.priceValue {
-  font-size: 64rpx;
-  font-weight: $font-weight-bold;
-  color: $color-price;
-}
-
-.priceUnit {
-  font-size: $font-size-lg;
-  font-weight: $font-weight-medium;
-  color: $color-price;
-  margin-left: $spacing-xs;
-}
-
-.pricePerSqm {
-  font-size: $font-size-sm;
-  color: $color-text-tertiary;
-  margin-left: $spacing-md;
-}
-
-.infoTags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-sm;
-  margin-bottom: $spacing-lg;
-}
-
-.infoTag {
-  padding: 6rpx 20rpx;
-  background: $color-bg-hover;
-  border-radius: $radius-xs;
-  font-size: $font-size-sm;
-  color: $color-text-secondary;
-}
-
-.featuresTitle {
-  font-size: $font-size-md;
-  font-weight: $font-weight-semibold;
-  color: $color-text-primary;
-  margin-bottom: $spacing-md;
-}
-
-.featuresList {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-sm;
-  margin-bottom: $spacing-xl;
-}
-
-.featureItem {
-  display: flex;
-  align-items: flex-start;
-  font-size: $font-size-md;
-  color: $color-text-secondary;
-  line-height: $line-height-normal;
-
-  &::before {
-    content: '✓';
-    color: $color-success;
-    font-weight: $font-weight-bold;
-    margin-right: $spacing-sm;
-    flex-shrink: 0;
-  }
-}
-
-.descriptionSection {
-  margin-bottom: $spacing-xl;
-}
-
-.descTitle {
-  font-size: $font-size-md;
-  font-weight: $font-weight-semibold;
-  color: $color-text-primary;
-  margin-bottom: $spacing-sm;
-}
-
-.descContent {
-  font-size: $font-size-sm;
-  color: $color-text-secondary;
-  line-height: $line-height-loose;
-}
-
-.agentCard {
-  display: flex;
-  align-items: center;
-  padding: $spacing-lg;
-  background: linear-gradient(135deg, #FFF5F0 0%, #FFFFFF 100%);
-  border-radius: $radius-lg;
-  border: 1rpx solid $color-divider;
-}
-
-.agentAvatar {
-  width: 96rpx;
-  height: 96rpx;
-  border-radius: $radius-round;
-  margin-right: $spacing-md;
-}
-
-.agentDetails {
-  flex: 1;
-}
-
-.agentName {
-  font-size: $font-size-lg;
-  font-weight: $font-weight-semibold;
-  color: $color-text-primary;
-}
-
-.agentCompany {
-  font-size: $font-size-sm;
-  color: $color-text-tertiary;
-  margin-top: 4rpx;
-}
-
-.agentPhone {
-  font-size: $font-size-sm;
-  color: $color-primary;
-  margin-top: 4rpx;
-  font-weight: $font-weight-medium;
-}
-
-.qrCode {
-  width: 96rpx;
-  height: 96rpx;
-  background: $color-bg-hover;
-  border-radius: $radius-sm;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40rpx;
+.scrollArea {
+  height: 100vh;
+  padding-bottom: 200rpx;
+  box-sizing: border-box;
 }
 
 .statsBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  padding: $spacing-md $spacing-lg;
   display: flex;
+  align-items: center;
   justify-content: space-around;
-  backdrop-filter: blur(10rpx);
-  z-index: 100;
+  padding: 32rpx 40rpx;
+  background: #1a1a1a;
+  border-bottom: 1rpx solid #2a2a2a;
 }
 
 .statItem {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: $spacing-xs;
+  gap: 8rpx;
 }
 
-.statIcon {
-  font-size: $font-size-md;
+.statNum {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: $brand-primary;
 }
 
-.statText {
-  font-size: $font-size-sm;
-  color: rgba(255, 255, 255, 0.9);
+.statLabel {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.statDivider {
+  width: 1rpx;
+  height: 60rpx;
+  background: #2a2a2a;
+}
+
+.posterWrap {
+  padding: 40rpx 24rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.posterPreview {
+  width: 600rpx;
+  background: white;
+  border-radius: 24rpx;
+  overflow: hidden;
+
+  &.square { width: 600rpx; }
+  &.portrait { width: 560rpx; }
+  &.landscape { width: 680rpx; }
+  &.story { width: 520rpx; }
+  &.vertical { width: 480rpx; }
+}
+
+.posterImage {
+  width: 100%;
+  display: block;
+  .square & { height: 560rpx; }
+  .portrait & { height: 680rpx; }
+  .landscape & { height: 380rpx; }
+  .story & { height: 620rpx; }
+  .vertical & { height: 780rpx; }
+}
+
+.posterContent {
+  padding: 32rpx;
+}
+
+.posterCommunity {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1D2129;
+  margin-bottom: 12rpx;
+}
+
+.posterPrice {
+  font-size: 52rpx;
+  font-weight: 700;
+  color: $price-color;
+  margin-bottom: 8rpx;
+
+  .unit {
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #86909C;
+    margin-left: 8rpx;
+  }
+}
+
+.posterInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.posterInfoItem {
+  font-size: 22rpx;
+  color: #86909C;
+  background: #F2F3F5;
+  padding: 4rpx 16rpx;
+  border-radius: 6rpx;
+}
+
+.posterFeatures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-bottom: 28rpx;
+}
+
+.posterFeature {
+  font-size: 22rpx;
+  color: $brand-primary;
+  background: rgba($brand-primary, 0.08);
+  padding: 6rpx 20rpx;
+  border-radius: 6rpx;
+  font-weight: 500;
+}
+
+.posterAddress {
+  font-size: 24rpx;
+  color: #4E5969;
+  padding: 16rpx 20rpx;
+  background: #F7F8FA;
+  border-radius: 12rpx;
+  margin-bottom: 28rpx;
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.posterAgent {
+  display: flex;
+  align-items: center;
+  padding-top: 24rpx;
+  border-top: 1rpx solid #E5E6EB;
+}
+
+.agentAvatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  border: 2rpx solid #E5E6EB;
+}
+
+.agentInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.agentName {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1D2129;
+}
+
+.agentCompany {
+  font-size: 22rpx;
+  color: #86909C;
+  margin-top: 4rpx;
+}
+
+.qrCodeBox {
+  width: 100rpx;
+  height: 100rpx;
+  background: white;
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rpx;
+  flex-shrink: 0;
+  border: 1rpx solid #E5E6EB;
+}
+
+.qrCodeInner {
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(45deg, #1D2129 25%, transparent 25%),
+    linear-gradient(-45deg, #1D2129 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #1D2129 75%),
+    linear-gradient(-45deg, transparent 75%, #1D2129 75%);
+  background-size: 14rpx 14rpx;
+  background-position: 0 0, 0 7rpx, 7rpx -7rpx, -7rpx 0rpx;
+  border-radius: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.qrCorner {
+  position: absolute;
+  width: 24rpx;
+  height: 24rpx;
+  border: 3rpx solid #1D2129;
+  background: white;
+
+  &.tl { top: 3rpx; left: 3rpx; }
+  &.tr { top: 3rpx; right: 3rpx; }
+  &.bl { bottom: 3rpx; left: 3rpx; }
+}
+
+.workMeta {
+  padding: 24rpx 32rpx;
+  color: #ccc;
+}
+
+.workTitle {
+  font-size: 28rpx;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+
+.workSub {
+  font-size: 22rpx;
+  color: #666;
 }
 
 .bottomBar {
   position: fixed;
-  bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.98);
-  padding: $spacing-md $spacing-lg;
-  padding-bottom: calc($spacing-md + env(safe-area-inset-bottom));
-  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.1);
+  bottom: 0;
   display: flex;
-  gap: $spacing-md;
-  backdrop-filter: blur(10rpx);
+  padding: 20rpx 24rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  background: #1a1a1a;
+  gap: 16rpx;
+  border-top: 1rpx solid #2a2a2a;
 }
 
-.actionBtn {
-  @include button-reset;
+.consultBtn,
+.shareBtn,
+.saveBtn {
   flex: 1;
-  height: $button-height-lg;
-  font-size: $font-size-md;
-  font-weight: $font-weight-semibold;
-  border-radius: $radius-button;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 44rpx;
+  gap: 8rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+}
 
-  &:active {
-    opacity: 0.9;
-    transform: scale(0.98);
-  }
+.consultBtn {
+  background: #2a2a2a;
+  color: white;
+}
 
-  &.outline {
-    background: transparent;
-    border: 2rpx solid $color-primary;
-    color: $color-primary;
-  }
+.consultIcon, .shareIcon, .saveIcon {
+  font-size: 32rpx;
+}
 
-  &.gradient {
-    background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
-    color: $color-text-white;
-  }
+.shareBtn {
+  background: linear-gradient(135deg, $brand-primary 0%, $brand-secondary 100%);
+  color: white;
+  flex: 1.3;
+}
 
-  &.gold {
-    background: linear-gradient(135deg, $color-gold 0%, #FFC94D 100%);
-    color: $color-text-white;
-  }
+.saveBtn {
+  background: #2a2a2a;
+  color: white;
+}
+
+.consultText, .shareText, .saveText {
+  font-size: 26rpx;
 }

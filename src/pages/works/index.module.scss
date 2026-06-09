@@ -67,10 +67,16 @@
   border-radius: $radius-lg;
   overflow: hidden;
   box-shadow: $shadow-card;
+  border: 3rpx solid transparent;
 
   &:active {
     transform: scale(0.98);
     opacity: 0.9;
+  }
+
+  &.buildingCardActive {
+    border-color: $brand-primary;
+    box-shadow: 0 4rpx 16rpx rgba($brand-primary, 0.2);
   }
 }
 

@@ -7,7 +7,8 @@ export default defineAppConfig({
     'pages/import/index',
     'pages/editor/index',
     'pages/gallery/index',
-    'pages/preview/index'
+    'pages/preview/index',
+    'pages/batch/index'
   ],
   window: {
     backgroundTextStyle: 'light',

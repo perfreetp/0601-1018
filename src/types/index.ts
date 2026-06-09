@@ -75,6 +75,7 @@ export interface PlatformSize {
   width: number;
   height: number;
   platform: string;
+  ratioClass: 'square' | 'portrait' | 'landscape' | 'story' | 'vertical';
 }
 
 export interface ShareRecord {

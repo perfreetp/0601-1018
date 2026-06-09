@@ -1,15 +1,15 @@
 import React, { useState, useMemo } from 'react';
-import { View, Text, ScrollView, Image, Button } from '@tarojs/components';
+import { View, Text, ScrollView, Image } from '@tarojs/components';
 import Taro, { useDidShow } from '@tarojs/taro';
-import classnames from 'classnames';
 import TemplateCard from '@/components/TemplateCard';
 import TagItem from '@/components/TagItem';
 import { templateCategories, templates } from '@/data/templates';
-import { works } from '@/data/works';
+import { useDesignStore } from '@/store/design';
 import styles from './index.module.scss';
 
 const HomePage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
+  const works = useDesignStore((state) => state.works);
 
   const filteredTemplates = useMemo(() => {
     if (activeCategory === 'all') return templates;
@@ -33,7 +33,7 @@ const HomePage: React.FC = () => {
         Taro.switchTab({ url: '/pages/copywriting/index' });
         break;
       case 'batch':
-        Taro.showToast({ title: '批量制作开发中', icon: 'none' });
+        Taro.navigateTo({ url: '/pages/batch/index' });
         break;
     }
   };

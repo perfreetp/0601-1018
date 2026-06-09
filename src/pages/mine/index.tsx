@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { View, Text, ScrollView, Image, Button } from '@tarojs/components';
 import Taro, { useDidShow } from '@tarojs/taro';
-import { shareRecords, works } from '@/data/works';
+import { useDesignStore } from '@/store/design';
+import EmptyState from '@/components/EmptyState';
 import styles from './index.module.scss';
 
 const MinePage: React.FC = () => {
+  const works = useDesignStore((state) => state.works);
+  const shareRecords = useDesignStore((state) => state.shareRecords);
+  const agentInfo = useDesignStore((state) => state.agentInfo);
+
   const totalWorks = works.length;
   const totalShares = shareRecords.length;
-  const totalViews = shareRecords.reduce((sum, r) => sum + r.views, 0);
+  const totalViews = works.reduce((sum, w) => sum + w.views, 0);
 
   const handleMenuClick = (menu: string) => {
     console.log('[Mine] 点击菜单:', menu);
     switch (menu) {
       case 'agent':
-        Taro.showToast({ title: '编辑名片开发中', icon: 'none' });
+        Taro.navigateTo({ url: '/pages/editor/index' });
+        setTimeout(() => {
+          Taro.showToast({ title: '请在编辑器"名片"标签中编辑', icon: 'none', duration: 2500 });
+        }, 300);
         break;
       case 'color':
         Taro.showToast({ title: '我的配色开发中', icon: 'none' });
@@ -25,7 +33,7 @@ const MinePage: React.FC = () => {
         Taro.showToast({ title: '设置开发中', icon: 'none' });
         break;
       case 'about':
-        Taro.showToast({ title: '关于我们开发中', icon: 'none' });
+        Taro.showToast({ title: '房产海报设计 v1.0', icon: 'none' });
         break;
     }
   };
@@ -37,8 +45,17 @@ const MinePage: React.FC = () => {
     }
   };
 
+  const platformIcon: Record<string, string> = {
+    '朋友圈': '🟢',
+    '微信群': '💬',
+    '微信好友': '👤',
+    '抖音': '🎵',
+    '小红书': '📕',
+    '保存图片': '💾'
+  };
+
   useDidShow(() => {
-    console.log('[Mine] 页面显示');
+    console.log('[Mine] 页面显示, 分享记录数:', shareRecords.length);
   });
 
   return (
@@ -48,14 +65,17 @@ const MinePage: React.FC = () => {
           <View className={styles.avatar}>
             <Image
               className={styles.avatarImg}
-              src="https://picsum.photos/id/64/200/200"
+              src={agentInfo.avatar || 'https://picsum.photos/id/64/200/200'}
               mode="aspectFill"
               onError={(e) => console.error('[Mine] 头像加载失败:', e)}
             />
           </View>
           <View className={styles.profileInfo}>
-            <Text className={styles.agentName}>小王</Text>
-            <Text className={styles.agentCompany}>链家房产 · 金牌经纪人</Text>
+            <Text className={styles.agentName}>{agentInfo.name || '小王'}</Text>
+            <Text className={styles.agentCompany}>{agentInfo.company || '链家房产'} · 金牌经纪人</Text>
+            <Text style={{ fontSize: 22, color: '#86909C', marginTop: 4 }}>
+              {agentInfo.phone || '13888888888'}
+            </Text>
           </View>
           <Button
             className={styles.editBtn}
@@ -101,24 +121,40 @@ const MinePage: React.FC = () => {
       </View>
 
       <View className={styles.cardSection}>
-        <View className={styles.cardTitle}>分享记录</View>
-        <View className={styles.shareRecords}>
-          {shareRecords.slice(0, 5).map((record) => (
-            <View
-              key={record.id}
-              className={styles.recordItem}
-              onClick={() => handleViewShareRecord(record.id)}
-            >
-              <View className={styles.recordInfo}>
-                <Text className={styles.recordTitle}>{record.workTitle}</Text>
-                <Text className={styles.recordMeta}>
-                  {record.shareTime} · {record.platform}
-                </Text>
-              </View>
-              <Text className={styles.recordViews}>👁 {record.views}</Text>
-            </View>
-          ))}
+        <View className={styles.cardTitle}>
+          分享记录
+          <Text style={{ fontSize: 22, color: '#86909C', fontWeight: 400, marginLeft: 8 }}>
+            共 {shareRecords.length} 条
+          </Text>
         </View>
+        {shareRecords.length === 0 ? (
+          <EmptyState
+            icon="📤"
+            title="暂无分享记录"
+            description="快去预览页分享作品给客户吧"
+          />
+        ) : (
+          <View className={styles.shareRecords}>
+            {shareRecords.slice(0, 8).map((record) => (
+              <View
+                key={record.id}
+                className={styles.recordItem}
+                onClick={() => handleViewShareRecord(record.id)}
+              >
+                <Text className={styles.recordPlatformIcon}>
+                  {platformIcon[record.platform] || '📱'}
+                </Text>
+                <View className={styles.recordInfo}>
+                  <Text className={styles.recordTitle} numberOfLines={1}>{record.workTitle}</Text>
+                  <Text className={styles.recordMeta}>
+                    {record.shareTime} · {record.platform}
+                  </Text>
+                </View>
+                <Text className={styles.recordViews}>👁 {record.views}</Text>
+              </View>
+            ))}
+          </View>
+        )}
       </View>
 
       <View className={styles.cardSection}>

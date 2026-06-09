@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, Input, Image, Button, Textarea } from '@tarojs/components';
-import Taro from '@tarojs/taro';
+import Taro, { useRouter } from '@tarojs/taro';
 import NavBar from '@/components/NavBar';
 import TagItem from '@/components/TagItem';
 import { useDesignStore } from '@/store/design';
@@ -14,7 +14,9 @@ const sampleImages = [
 ];
 
 const ImportPage: React.FC = () => {
-  const { propertyInfo, setPropertyInfo, setSelectedTemplateId } = useDesignStore();
+  const router = useRouter();
+  const { propertyInfo, setPropertyInfo, setSelectedTemplateId, addPropertyToLibrary } = useDesignStore();
+  const fromPage = router.params?.from || '';
   const [newFeature, setNewFeature] = useState('');
   const [images, setImages] = useState<string[]>(sampleImages);
 
@@ -68,15 +70,19 @@ const ImportPage: React.FC = () => {
       Taro.showToast({ title: '请输入小区名称', icon: 'none' });
       return;
     }
-    setPropertyInfo({ images });
-    if (!propertyInfo.features || propertyInfo.features.length === 0) {
-      handleAutoGenerate();
-    }
-    console.log('[Import] 提交房源信息:', propertyInfo);
+    const finalFeatures = propertyInfo.features?.length ? propertyInfo.features : generateSellPoints(propertyInfo);
+    const finalPropertyInfo = { ...propertyInfo, images, features: finalFeatures };
+    setPropertyInfo({ images, features: finalFeatures });
+    addPropertyToLibrary(finalPropertyInfo);
+    console.log('[Import] 提交房源信息:', finalPropertyInfo);
     Taro.showToast({ title: '录入成功', icon: 'success' });
     setTimeout(() => {
-      Taro.navigateTo({ url: '/pages/editor/index' });
-    }, 1000);
+      if (fromPage === 'batch') {
+        Taro.navigateBack();
+      } else {
+        Taro.navigateTo({ url: '/pages/editor/index' });
+      }
+    }, 800);
   };
 
   const handleCancel = () => {

@@ -36,3 +36,18 @@ $color-tag-text: #FF6B35;
 $color-gold: #FFB800;
 $color-blue-tag: #E8F3FF;
 $color-blue-text: #165DFF;
+
+// 通用别名（兼容不同命名习惯）
+$brand-primary: $color-primary;
+$brand-secondary: $color-primary-light;
+$price-color: $color-price;
+$bg-page: $color-bg-page;
+$bg-card: $color-bg-card;
+$bg-hover: $color-bg-hover;
+$bg-gray: #E5E6EB;
+$text-primary: $color-text-primary;
+$text-secondary: $color-text-secondary;
+$text-tertiary: $color-text-tertiary;
+$border-light: $color-divider;
+$border-medium: $color-border;
+$shadow-sm: $shadow-card;

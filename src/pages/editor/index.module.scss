@@ -2,51 +2,63 @@
 
 .page {
   min-height: 100vh;
-  background: $color-bg-page;
+  background: $bg-page;
   padding-bottom: 200rpx;
 }
 
 .previewArea {
-  background: linear-gradient(180deg, #FFF5F0 0%, $color-bg-page 100%);
-  padding: $spacing-xl $spacing-lg;
+  background: linear-gradient(180deg, #FFF5F0 0%, $bg-page 100%);
+  padding: 40rpx 24rpx;
   display: flex;
   justify-content: center;
 }
 
 .posterPreview {
   width: 600rpx;
-  background: $color-bg-card;
-  border-radius: $radius-xl;
+  background: white;
+  border-radius: 24rpx;
   overflow: hidden;
   box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.12);
+
+  &.square { width: 560rpx; }
+  &.portrait { width: 520rpx; }
+  &.landscape { width: 640rpx; }
+  &.story { width: 480rpx; }
+  &.vertical { width: 440rpx; }
 }
 
 .posterImage {
   width: 100%;
-  height: 500rpx;
+  display: block;
+
+  .square & { height: 560rpx; }
+  .portrait & { height: 690rpx; }
+  .landscape & { height: 355rpx; }
+  .story & { height: 620rpx; }
+  .vertical & { height: 782rpx; }
 }
 
 .posterContent {
-  padding: $spacing-lg;
+  padding: 32rpx;
 }
 
 .posterCommunity {
-  font-size: $font-size-xl;
-  font-weight: $font-weight-bold;
-  color: $color-text-primary;
-  margin-bottom: $spacing-sm;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: 12rpx;
 }
 
 .posterPrice {
-  font-size: $font-size-xxl;
-  font-weight: $font-weight-bold;
-  color: $color-price;
-  margin-bottom: $spacing-xs;
+  font-size: 52rpx;
+  font-weight: 700;
+  color: $price-color;
+  margin-bottom: 8rpx;
 
   .unit {
-    font-size: $font-size-sm;
-    font-weight: $font-weight-normal;
-    color: $color-text-secondary;
+    font-size: 24rpx;
+    font-weight: 400;
+    color: $text-secondary;
     margin-left: 8rpx;
   }
 }
@@ -54,79 +66,182 @@
 .posterInfo {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-sm;
-  margin-bottom: $spacing-md;
+  gap: 12rpx;
+  margin-bottom: 20rpx;
 }
 
 .posterInfoItem {
-  font-size: $font-size-sm;
-  color: $color-text-secondary;
-  background: $color-bg-hover;
+  font-size: 22rpx;
+  color: $text-secondary;
+  background: $bg-hover;
   padding: 4rpx 16rpx;
-  border-radius: $radius-xs;
+  border-radius: 6rpx;
 }
 
 .posterFeatures {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-sm;
-  margin-bottom: $spacing-lg;
+  gap: 12rpx;
+  margin-bottom: 28rpx;
 }
 
 .posterFeature {
-  font-size: $font-size-sm;
-  color: $color-tag-text;
-  background: $color-tag-bg;
+  font-size: 22rpx;
+  color: $brand-primary;
+  background: rgba($brand-primary, 0.08);
   padding: 6rpx 20rpx;
-  border-radius: $radius-xs;
-  font-weight: $font-weight-medium;
+  border-radius: 6rpx;
+  font-weight: 500;
+}
+
+.posterDesc {
+  font-size: 24rpx;
+  color: $text-secondary;
+  line-height: 1.6;
+  margin-bottom: 24rpx;
+}
+
+.posterAddress {
+  font-size: 24rpx;
+  color: $text-tertiary;
+  padding: 16rpx 20rpx;
+  background: $bg-hover;
+  border-radius: 12rpx;
+  margin-bottom: 28rpx;
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
 }
 
 .posterAgent {
   display: flex;
   align-items: center;
-  padding-top: $spacing-md;
-  border-top: 1rpx solid $color-divider;
+  padding-top: 24rpx;
+  border-top: 1rpx solid $border-light;
 }
 
 .agentAvatar {
   width: 80rpx;
   height: 80rpx;
-  border-radius: $radius-round;
-  margin-right: $spacing-md;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  border: 2rpx solid $border-light;
 }
 
 .agentInfo {
   flex: 1;
+  min-width: 0;
 }
 
 .agentName {
-  font-size: $font-size-md;
-  font-weight: $font-weight-semibold;
-  color: $color-text-primary;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: $text-primary;
 }
 
 .agentCompany {
-  font-size: $font-size-xs;
-  color: $color-text-tertiary;
+  font-size: 22rpx;
+  color: $text-tertiary;
   margin-top: 4rpx;
 }
 
-.qrCode {
-  width: 80rpx;
-  height: 80rpx;
-  background: $color-bg-hover;
-  border-radius: $radius-sm;
+.qrSection {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-top: 24rpx;
+  padding: 20rpx;
+  background: linear-gradient(135deg, #F5F7FA 0%, #E8EEF4 100%);
+  border-radius: 16rpx;
+  border: 1rpx dashed $border-medium;
+}
+
+.qrCodeBox {
+  width: 120rpx;
+  height: 120rpx;
+  background: white;
+  border-radius: 12rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32rpx;
+  padding: 8rpx;
+  flex-shrink: 0;
+  border: 1rpx solid $border-light;
+}
+
+.qrCodeInner {
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(45deg, #1D2129 25%, transparent 25%),
+    linear-gradient(-45deg, #1D2129 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #1D2129 75%),
+    linear-gradient(-45deg, transparent 75%, #1D2129 75%);
+  background-size: 16rpx 16rpx;
+  background-position: 0 0, 0 8rpx, 8rpx -8rpx, -8rpx 0rpx;
+  border-radius: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.qrCorner {
+  position: absolute;
+  width: 28rpx;
+  height: 28rpx;
+  border: 4rpx solid #1D2129;
+  background: white;
+
+  &.tl { top: 4rpx; left: 4rpx; }
+  &.tr { top: 4rpx; right: 4rpx; }
+  &.bl { bottom: 4rpx; left: 4rpx; }
+}
+
+.qrText {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.qrTitle {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+.qrSub {
+  font-size: 20rpx;
+  color: $text-tertiary;
+  line-height: 1.4;
+}
+
+.sizeLabelBar {
+  display: flex;
+  justify-content: center;
+  padding: 12rpx 0 0;
+}
+
+.sizeLabel {
+  font-size: 22rpx;
+  color: $brand-primary;
+  background: rgba($brand-primary, 0.1);
+  padding: 6rpx 20rpx;
+  border-radius: 20rpx;
+  font-weight: 500;
+}
+
+.blurText {
+  filter: blur(4rpx);
+  user-select: none;
 }
 
 .toolsTab {
   display: flex;
-  background: $color-bg-card;
-  border-bottom: 1rpx solid $color-divider;
+  background: white;
+  border-bottom: 1rpx solid $border-light;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -135,15 +250,15 @@
 .toolTabItem {
   flex: 1;
   text-align: center;
-  padding: $spacing-md 0;
-  font-size: $font-size-sm;
-  color: $color-text-secondary;
-  font-weight: $font-weight-medium;
+  padding: 28rpx 0;
+  font-size: 26rpx;
+  color: $text-secondary;
+  font-weight: 500;
   position: relative;
 
   &.active {
-    color: $color-primary;
-    font-weight: $font-weight-semibold;
+    color: $brand-primary;
+    font-weight: 600;
 
     &::after {
       content: '';
@@ -153,29 +268,29 @@
       transform: translateX(-50%);
       width: 48rpx;
       height: 6rpx;
-      background: $color-primary;
+      background: $brand-primary;
       border-radius: 3rpx;
     }
   }
 }
 
 .toolPanel {
-  background: $color-bg-card;
-  padding: $spacing-lg;
-  margin-top: $spacing-sm;
+  background: white;
+  padding: 32rpx;
+  margin-top: 12rpx;
 }
 
 .panelTitle {
-  font-size: $font-size-md;
-  font-weight: $font-weight-semibold;
-  color: $color-text-primary;
-  margin-bottom: $spacing-md;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: $text-primary;
+  margin-bottom: 24rpx;
 }
 
 .colorList {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-md;
+  gap: 24rpx;
 }
 
 .colorItem {
@@ -184,117 +299,105 @@
   align-items: center;
   width: 120rpx;
 
-  &:active {
-    opacity: 0.8;
-  }
+  &:active { opacity: 0.8; }
 }
 
 .colorPreview {
   width: 80rpx;
   height: 80rpx;
-  border-radius: $radius-round;
-  margin-bottom: $spacing-xs;
+  border-radius: 50%;
+  margin-bottom: 8rpx;
   border: 4rpx solid transparent;
 
-  &.active {
-    border-color: $color-primary;
-  }
+  &.active { border-color: $brand-primary; }
 }
 
 .colorName {
-  font-size: $font-size-xs;
-  color: $color-text-secondary;
+  font-size: 22rpx;
+  color: $text-secondary;
 }
 
 .sizeList {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-sm;
+  gap: 16rpx;
 }
 
 .sizeItem {
-  padding: $spacing-sm $spacing-md;
-  background: $color-bg-hover;
-  border-radius: $radius-md;
+  padding: 16rpx 24rpx;
+  background: $bg-hover;
+  border-radius: 16rpx;
   border: 2rpx solid transparent;
 
   &.active {
-    background: $color-tag-bg;
-    border-color: $color-primary;
+    background: rgba($brand-primary, 0.08);
+    border-color: $brand-primary;
   }
 
-  &:active {
-    opacity: 0.8;
-  }
+  &:active { opacity: 0.8; }
 }
 
 .sizeName {
-  font-size: $font-size-sm;
-  color: $color-text-primary;
-  font-weight: $font-weight-medium;
+  font-size: 26rpx;
+  color: $text-primary;
+  font-weight: 500;
 }
 
 .sizeSpec {
-  font-size: $font-size-xs;
-  color: $color-text-tertiary;
+  font-size: 20rpx;
+  color: $text-tertiary;
   margin-top: 4rpx;
 }
 
 .festivalList {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-sm;
+  gap: 16rpx;
 }
 
 .festivalItem {
-  padding: $spacing-sm $spacing-md;
-  background: $color-bg-hover;
-  border-radius: $radius-md;
+  padding: 16rpx 24rpx;
+  background: $bg-hover;
+  border-radius: 16rpx;
   display: flex;
   align-items: center;
-  gap: $spacing-xs;
+  gap: 8rpx;
   border: 2rpx solid transparent;
 
   &.active {
-    background: $color-tag-bg;
-    border-color: $color-primary;
+    background: rgba($brand-primary, 0.08);
+    border-color: $brand-primary;
   }
 
-  &:active {
-    opacity: 0.8;
-  }
+  &:active { opacity: 0.8; }
 }
 
-.festivalIcon {
-  font-size: 32rpx;
-}
+.festivalIcon { font-size: 32rpx; }
 
 .festivalName {
-  font-size: $font-size-sm;
-  color: $color-text-primary;
-  font-weight: $font-weight-medium;
+  font-size: 26rpx;
+  color: $text-primary;
+  font-weight: 500;
 }
 
 .switchRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $spacing-md 0;
-  border-bottom: 1rpx solid $color-divider;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid $border-light;
 
-  &:last-child {
-    border-bottom: none;
-  }
+  &:last-child { border-bottom: none; }
 }
 
 .switchLabel {
-  font-size: $font-size-md;
-  color: $color-text-primary;
+  font-size: 28rpx;
+  color: $text-primary;
 }
 
 .switchDesc {
-  font-size: $font-size-xs;
-  color: $color-text-tertiary;
+  font-size: 22rpx;
+  color: $text-tertiary;
   margin-top: 4rpx;
 }
 
@@ -303,55 +406,69 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: $color-bg-card;
-  padding: $spacing-md $spacing-lg;
-  padding-bottom: calc($spacing-md + env(safe-area-inset-bottom));
+  background: white;
+  padding: 20rpx 24rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
   box-shadow: 0 -4rpx 16rpx rgba(0, 0, 0, 0.08);
   display: flex;
-  gap: $spacing-md;
+  gap: 16rpx;
+}
+
+.secondaryBtn,
+.primaryBtn,
+.exportBtn {
+  flex: 1;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 44rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  border: none;
+  padding: 0;
+  line-height: 1.4;
+
+  &::after { border: none; }
 }
 
 .secondaryBtn {
-  @include button-reset;
-  flex: 1;
-  height: $button-height-lg;
-  background: $color-bg-hover;
-  color: $color-text-secondary;
-  font-size: $font-size-md;
-  font-weight: $font-weight-semibold;
-  border-radius: $radius-button;
-
-  &:active {
-    opacity: 0.9;
-  }
+  background: $bg-hover;
+  color: $text-secondary;
+  flex: 0.8;
 }
 
 .primaryBtn {
-  @include button-reset;
-  flex: 1;
-  height: $button-height-lg;
-  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
-  color: $color-text-white;
-  font-size: $font-size-md;
-  font-weight: $font-weight-semibold;
-  border-radius: $radius-button;
-
-  &:active {
-    opacity: 0.9;
-  }
+  background: linear-gradient(135deg, $brand-primary 0%, $brand-secondary 100%);
+  color: white;
+  flex: 0.8;
 }
 
 .exportBtn {
-  @include button-reset;
-  flex: 2;
-  height: $button-height-lg;
-  background: linear-gradient(135deg, $color-gold 0%, #FFC94D 100%);
-  color: $color-text-white;
-  font-size: $font-size-md;
-  font-weight: $font-weight-semibold;
-  border-radius: $radius-button;
+  background: linear-gradient(135deg, #D4A853 0%, #FFC94D 100%);
+  color: white;
+  flex: 1.2;
+}
 
-  &:active {
-    opacity: 0.9;
-  }
+.formGroup {
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid $border-light;
+
+  &:last-child { border-bottom: none; }
+}
+
+.formLabel {
+  font-size: 24rpx;
+  color: $text-tertiary;
+  margin-bottom: 8rpx;
+}
+
+.formInput {
+  font-size: 28rpx;
+  color: $text-primary;
+  background: $bg-page;
+  padding: 16rpx 20rpx;
+  border-radius: 12rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
